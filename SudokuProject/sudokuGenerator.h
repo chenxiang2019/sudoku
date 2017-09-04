@@ -14,7 +14,7 @@ public:
     void Printer();
 
 private:
-    int solution[9][9];
+    int solution[10][10];
 };
 
 #endif

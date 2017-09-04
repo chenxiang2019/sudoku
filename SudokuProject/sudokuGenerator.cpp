@@ -5,11 +5,6 @@
 #include <iostream>
 using namespace std;
 
-bool isValid(int array[10], int number) {
-    if (array[number] == 1) return false;
-    return true;
-}
-
 bool SudokuGenerator::Generator() {
     int i, j, k;
     memset(solution, 0, sizeof(solution));
@@ -32,13 +27,13 @@ bool SudokuGenerator::Generator() {
                 int index = solution[i][k];
                 possibleNumber[index] = 1;
             }
-            
+                       
             // satisfy the column requirments
             for (k = 0; k < 9; k++) {
                 int index = solution[k][i];
                 possibleNumber[index] = 1;
             } 
-
+            
             // satisfy the block requirments
             int topleftLine = (i/3)*3, topleftColumn = (j/3)*3;
             int indexLine = 0, indexColumn = 0;
@@ -49,34 +44,39 @@ bool SudokuGenerator::Generator() {
                 }
             }
             
+            // array used to store possible numbers
+            int availableNumbers[15], index = 1, length = 0;
+
             // check if all the number are impossible or not
             bool isImpossible = true;
-            for (k = 0; k < 10; k++) {
+            for (k = 1; k < 10; k++) {
                 if (possibleNumber[k] == 0) {
                     isImpossible = false;
-                    break;
+                    availableNumbers[index] = k;
+                    index++;
                 }
             }
-
+            
             // if impossible, recirculate
             if (isImpossible) {
                 cout << "no answer for current place: place 2" << endl;
                 return false;
             }
 
-            // generate random number
-            int currentNumber = 0;
-            while (true) {
-                srand(time(NULL));
-                currentNumber = rand()%9+1;
-                
-                // if the generated number is legal, break
-                if (possibleNumber[currentNumber] == 0) break;
-            }
-            cout << "the chosen number is: " << currentNumber << endl;
-            solution[i][j] = currentNumber;
+            // randomly choose a number from availableNumbers 
+            int randomIndex = 0;
+
+            // get array length
+            length = index-1;
+            
+            srand(time(NULL));
+            randomIndex = rand()%length+1;
+            
+            cout << "the chosen number is: " << availableNumbers[randomIndex] << endl;
+            solution[i][j] = availableNumbers[randomIndex];
         }
     }
+    return true;
 }
 
 void SudokuGenerator::Printer() {
