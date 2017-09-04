@@ -93,7 +93,7 @@ bool SudokuJudger::SudokuisSolved(int input[9][9]) {
 
     // for two diagonal line: 
     // left-to-right(L2R) and right-to-left(R2L) checking
-    int testDiagonal_L2R[10];
+    /*int testDiagonal_L2R[10];
     int testDiagonal_R2L[10];
 
     memset(testDiagonal_L2R, 0, sizeof(testDiagonal_L2R));
@@ -117,7 +117,7 @@ bool SudokuJudger::SudokuisSolved(int input[9][9]) {
             testDiagonal_L2R[indexL2R] = 1;
             testDiagonal_R2L[indexR2L] = 1;
         }
-    }
+    }*/
 
     return true;
 }
