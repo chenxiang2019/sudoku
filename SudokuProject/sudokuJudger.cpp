@@ -89,5 +89,35 @@ bool SudokuJudger::SudokuisSolved(int input[9][9]) {
         }
     }
 
+    // the following codes enable the check of two diagonal lines.
+
+    // for two diagonal line: 
+    // left-to-right(L2R) and right-to-left(R2L) checking
+    int testDiagonal_L2R[10];
+    int testDiagonal_R2L[10];
+
+    memset(testDiagonal_L2R, 0, sizeof(testDiagonal_L2R));
+    memset(testDiagonal_R2L, 0, sizeof(testDiagonal_R2L));
+
+    // using the current number as the index 
+    int indexL2R = 0, indexR2L = 0;
+  
+    for (i = 0; i < 9; i++) {
+        indexL2R = input[i][i];
+        indexR2L = input[i][9-i-1];
+
+        if (testDiagonal_L2R[indexL2R] == 1 || testDiagonal_R2L[indexR2L] == 1) {
+            if (testDiagonal_L2R[indexL2R] = 1) {
+                cout << "L2R Error4 occurred in line " << i << " column " << i << "\n";
+            } else {
+                cout << "R2L Error4 occurred in line " << i << " column " << 9-i-1 << "\n";
+            }
+            return false;
+        } else {
+            testDiagonal_L2R[indexL2R] = 1;
+            testDiagonal_R2L[indexR2L] = 1;
+        }
+    }
+
     return true;
 }
