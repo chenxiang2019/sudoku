@@ -9,7 +9,9 @@ public:
     }
 
     // generate reasonable solutions
-    bool Generator();
+    bool Generator1();
+    bool Generator2();
+    int generateNumber(int index);
     // print the calculated solutions
     void Printer();
 
