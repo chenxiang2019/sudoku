@@ -11,7 +11,7 @@ int main() {
     bool signal = false;
     SudokuGenerator sudokuGenerator;
     while (!signal) {
-        signal = sudokuGenerator.Generator2();
+        signal = sudokuGenerator.Generator();
     }
     sudokuGenerator.Printer();
 

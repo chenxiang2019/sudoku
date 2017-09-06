@@ -8,10 +8,9 @@ public:
         memset(solution, 0, sizeof(solution));
     }
 
-    // generate reasonable solutions
-    bool Generator1();
-    bool Generator2();
-    int generateNumber(int index);
+    int generateNumber(int inputAvailable[10], int index);
+    bool Generator();
+
     // print the calculated solutions
     void Printer();
 
