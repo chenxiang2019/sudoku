@@ -1,5 +1,6 @@
 #include "sudokuJudger.h"
 #include "sudokuGenerator.h"
+#include "sudokuPrinter.h"
 #include <stdlib.h>
 #include <iostream>
 using namespace std;
@@ -13,7 +14,8 @@ int main() {
     while (!signal) {
         signal = sudokuGenerator.Generator();
     }
-    sudokuGenerator.Printer();
+    SudokuPrinter sudokuPrinter;
+    sudokuPrinter.Printer(sudokuGenerator.solution);
 
     /*for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {

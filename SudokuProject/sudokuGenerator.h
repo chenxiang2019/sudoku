@@ -11,11 +11,7 @@ public:
     int generateNumber(int inputAvailable[10], int index);
     bool Generator();
 
-    // print the calculated solutions
-    void Printer();
-
-private:
-    int solution[10][10];
+    int solution[9][9];
 };
 
 #endif
