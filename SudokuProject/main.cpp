@@ -5,27 +5,29 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    int input[9][9];
-    int i, j;
+int main(int argc, char *argv[]) {
+    if (argc < 3) {
+        cout << "Error occurs when parsing arguments." << endl;
+        cout << "Usage: sudoku.exe -c [N]" << endl;
+        return 1;
+    }
+
+    int solutionNumber = atoi(argv[2]);
+
+    SudokuGenerator sudokuGenerator;
+    SudokuPrinter sudokuPrinter;
 
     bool signal = false;
-    SudokuGenerator sudokuGenerator;
-    while (!signal) {
-        signal = sudokuGenerator.Generator();
-    }
-    SudokuPrinter sudokuPrinter;
-    sudokuPrinter.Printer(sudokuGenerator.solution);
 
-    /*for (i = 0; i < 9; i++) {
-        for (j = 0; j < 9; j++) {
-            cin >> input[i][j];
+    for (int i = 0; i < solutionNumber; i++) {
+        signal = sudokuGenerator.Generator();
+        if (signal) {
+            sudokuPrinter.Printer(sudokuGenerator.solution);
+        } else {
+            cout << "Error occurs when applying sudokuGenerator." << endl;
+            return 1;
         }
     }
-    SudokuJudger sudokuJudger1;
-    bool sudokuResult = sudokuJudger1.SudokuisSolved(input);
-    if (sudokuResult) {
-        cout << "Congratulations!" << endl;
-    }*/
+
     return 0;
 }
