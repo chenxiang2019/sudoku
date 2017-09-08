@@ -8,5 +8,8 @@ Usage:
 ```
 $ cd SudokuProject
 $ ./compile.sh
-$ ./main
+$ touch sudoku.txt
+$ ./main -c 10 // generate 10 sudoku solutions
 ```
+
+2.Windows:
