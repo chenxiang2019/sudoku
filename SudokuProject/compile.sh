@@ -1,1 +1,1 @@
-gcc main.cpp sudokuJudger.cpp sudokuGenerator.cpp sudokuPrinter.cpp sudokuIO.cpp -Wall -lstdc++ -o main
+gcc main.cpp sudokuExceptionInspector.cpp sudokuJudger.cpp sudokuGenerator.cpp sudokuPrinter.cpp sudokuIO.cpp -Wall -lstdc++ -o main
