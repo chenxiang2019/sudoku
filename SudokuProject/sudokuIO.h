@@ -7,7 +7,7 @@ class SudokuIOer {
 public:
     SudokuIOer() {
     }
-    void outputFile(int solution[9][9], string filename);
+    void outputFile(int solution[9][9], char filename[]);
 };
 
 #endif

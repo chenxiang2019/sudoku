@@ -3,7 +3,7 @@
 #include "sudokuPrinter.h"
 #include "sudokuIO.h"
 #include <stdlib.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include <iostream>
 using namespace std;
 
@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < solutionNumber; i++) {
         signal = sudokuGenerator.Generator();
         if (signal) {
+            sudokuGenerator.increaseRandomSeed();
             sudokuIOer.outputFile(sudokuGenerator.solution, "sudoku.txt");
-            sleep(1);
         } else {
             cout << "Error occurs when applying sudokuGenerator." << endl;
             return 1;

@@ -6,6 +6,10 @@
 #include <iostream>
 using namespace std;
 
+void SudokuGenerator::increaseRandomSeed() {
+    randomSeed++;
+}
+
 /**
  * Generate legal number for specific array space,
  * based on the limitations of line, column and block.
@@ -72,7 +76,7 @@ int SudokuGenerator::generateNumber(int inputAvailable[10], int index) {
         // debug: cout << "Error: no such number found." << endl;
         return -1;
     } else { // otherwise, randomly choose one available number
-        srand(time(NULL));
+        srand((unsigned)(time(NULL)+randomSeed));
         int randomIndex = rand()%length;
         return numberStorage[randomIndex];
     }
