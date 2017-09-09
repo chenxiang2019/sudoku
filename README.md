@@ -13,3 +13,8 @@ $ ./main -c 10 // generate 10 sudoku solutions
 ```
 
 2.Windows:
+
+```
+$ cd BIN/
+$ sudoku.exe -c 10 // generate 10 sudoku solutions
+```
