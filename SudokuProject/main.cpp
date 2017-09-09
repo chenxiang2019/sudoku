@@ -4,6 +4,7 @@
 #include "sudokuIO.h"
 #include "sudokuExceptionInspector.h"
 #include <stdlib.h>
+#include <fstream>
 // #include <unistd.h>
 #include <iostream>
 using namespace std;
@@ -30,18 +31,25 @@ int main(int argc, char *argv[]) {
     SudokuIOer sudokuIOer;
     // SudokuPrinter sudokuPrinter;
 
+    ofstream sudokuFile("sudoku.txt", ios::out | ios::ate);
+    // open sudoku.txt 
+    // sudokuFile.open("sudoku.txt", ios::app);
+
     bool signal = false;
 
     for (int i = 0; i < solutionNumber; i++) {
         signal = sudokuGenerator.Generator();
         if (signal) {
             sudokuGenerator.increaseRandomSeed();
-            sudokuIOer.outputFile(sudokuGenerator.solution, "sudoku.txt");
+            sudokuIOer.outputFile(sudokuGenerator.solution, sudokuFile);
         } else {
             cout << "Error occurs when applying sudokuGenerator." << endl;
             return 1;
         }
     }
+
+    // close sudoku.txt
+    sudokuFile.close();
 
     return 0;
 }

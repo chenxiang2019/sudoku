@@ -1,15 +1,10 @@
 #include "sudokuIO.h"
-#include <fstream>
 #include <stdlib.h>
+#include <fstream>
 #include <iostream>
 using namespace std;
 
-void SudokuIOer::outputFile(int solution[9][9], char filename[]) {
-    fstream sudokuFile;
-    // open sudoku.txt 
-    sudokuFile.open(filename, ios::app);
-
-    // write the answer to sudoku.txt
+void SudokuIOer::outputFile(int solution[9][9], ofstream& sudokuFile) {
     int i, j;
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
@@ -21,7 +16,4 @@ void SudokuIOer::outputFile(int solution[9][9], char filename[]) {
         }
     }
     sudokuFile << "\n";
-
-    // close sudoku.txt
-    sudokuFile.close();
 }
