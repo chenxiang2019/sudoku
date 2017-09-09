@@ -31,9 +31,9 @@ int main(int argc, char *argv[]) {
     SudokuIOer sudokuIOer;
     // SudokuPrinter sudokuPrinter;
 
-    fstream sudokuFile;
+    ofstream sudokuFile("sudoku.txt", ios::out | ios::ate);
     // open sudoku.txt 
-    sudokuFile.open(filename, ios::app);
+    // sudokuFile.open("sudoku.txt", ios::app);
 
     bool signal = false;
 
