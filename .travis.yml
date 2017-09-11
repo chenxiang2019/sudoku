@@ -1,0 +1,7 @@
+language: C++
+
+script: 
+cd SudokuProject
+./compile.sh
+touch sudoku.txt
+./main -c 100
