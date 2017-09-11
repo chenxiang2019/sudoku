@@ -1,7 +1,11 @@
 language: C++
+compiler: gcc
 
 script: 
-cd SudokuProject
-./compile.sh
-touch sudoku.txt
-./main -c 100
+  - cd SudokuProject
+  - ./compile.sh
+  - touch sudoku.txt
+  - ./main -c 100
+
+after_success: 
+  - bash <(curl -s https://codecov.io/bash)
